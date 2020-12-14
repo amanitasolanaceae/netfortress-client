@@ -87,9 +87,7 @@ function love.draw()
 			SG.effects.focused(function()
 				love.graphics.draw(tilesetBatch)
 			end)
-			for k, v in pairs( SG.emittersPre ) do
-				love.graphics.draw(v[1], ( ( v[2] - ( mapX - 1 ) ) * 40 ) - 20, ( ( v[3] - ( mapY - 1 ) ) * 40 ) - 20)
-			end
+			local first = true
 			for q, p in pairs( sort ) do
 				for k, v in pairs( p ) do
 					if( v.x_draw and v.x ) then
@@ -117,6 +115,13 @@ function love.draw()
 						--love.graphics.setColor( 0.5 + ( 0.25 * ( math.sin( love.timer.getTime() ) ) ), 0.5 + ( 0.25 * ( math.sin( love.timer.getTime() ) ) ), 0.5 + ( 0.25 * ( math.sin( love.timer.getTime() ) ) ), 255 );
 					end
 				end
+				if( first ) then
+					-- the iteration is always supposed to be turfs, so we want to draw preemitters on top of them
+					first = false
+					for k, v in pairs( SG.emittersPre ) do
+						love.graphics.draw(v[1], ( ( v[2] - ( mapX - 1 ) ) * 40 ) - 20, ( ( v[3] - ( mapY - 1 ) ) * 40 ) - 20)
+					end
+				end
 			end
 		
 		-- now do any extra renders for objects that allow them
@@ -139,7 +144,7 @@ function love.draw()
 		
 		--love.graphics.draw(tilesetBatch, math.floor(-zoomX*(mapX%1)*tileSize), math.floor(-zoomY*(mapY%1)*tileSize), 0, zoomX, zoomY)
 		love.graphics.print("FPS: "..love.timer.getFPS(), 10, 20)
-		if( client and client.mobid and SG.atomicTable[client.mobid] ) then
+		if( client and client.mobid and SG.atomicTable[client.mobid] and SG.atomicTable[client.mobid].y ) then
 			love.graphics.print("x, y: "..SG.atomicTable[client.mobid].x..", "..SG.atomicTable[client.mobid].y, 10, 30)
 		end
 		if( stateMsgs[state] ) then
@@ -239,6 +244,6 @@ function moveMap(dx, dy)
 	mapY = math.max(math.min(mapY + dy, mapHeight - tilesDisplayHeight), 1)
 	-- only update if we actually moved
 	if math.floor(mapX) ~= math.floor(oldMapX) or math.floor(mapY) ~= math.floor(oldMapY) then
-		updateTilesetBatch()
+		--updateTilesetBatch()
 	end
 end
