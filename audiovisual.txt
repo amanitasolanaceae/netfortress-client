@@ -1,0 +1,5 @@
+filmgrain|true|dark scattering noise on the screen
+crt|true|bending viewport, like an old TV screen
+chromasep|true|separation of color channels
+scanlines|true|lines that cross the viewport, like an old TV screen
+focused|true|graphics that represent terrain greying out when you focus on something

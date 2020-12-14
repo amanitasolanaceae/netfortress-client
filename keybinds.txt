@@ -1,0 +1,13 @@
+chat|return
+chatbackspace|backspace
+use|z
+drop|d
+inventory|i
+invslotwielded|kp4
+invslotoffhand|kp6
+invslotheadwear|kp8
+invslottorsowear|kp5
+invslotlegwear|kp2
+invslotneckwear|kp7
+invslotvessel|kp3
+invslottrinket|kp1
