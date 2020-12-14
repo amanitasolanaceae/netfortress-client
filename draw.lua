@@ -227,7 +227,7 @@ function adjustMap()
 	--mapY = math.max(math.min(mapY + dy, mapHeight - tilesDisplayHeight), 1)
 	-- only update if we actually moved
 	if math.floor(mapX) ~= math.floor(oldMapX) or math.floor(mapY) ~= math.floor(oldMapY) then
-		updateTilesetBatch()
+		--updateTilesetBatch()
 	end
 end
  

@@ -120,7 +120,7 @@ function love.load()
 	
 	client:on("sendmap", function(recmap)
 		map = recmap
-		updateTilesetBatch()
+		--updateTilesetBatch()
     end)
 	
 	client:on("verifyMob", function(id)
