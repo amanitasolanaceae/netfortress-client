@@ -1,12 +1,12 @@
-Server Movement
+Death
 audiovisual.txt
-keybinds.txt
 bitser.lua
 client.lua
 conf.lua
 controls.lua
 draw.lua
 inspect.lua
+keybinds.txt
 main.lua
 sha.lua
 sock.lua
@@ -17,6 +17,8 @@ fonts\8bit.ttf
 fonts\chill.ttf
 fonts\chillcutout.ttf
 fonts\chillmono.ttf
+fonts\SIL Open Font License.txt
+fonts\SILOpenFontLicense.txt
 fonts\spixel.ttf
 graphics\clothing.png
 graphics\clothing_worn.png
